@@ -99,7 +99,7 @@ let
       else state
     else
       if ins == i.RIGHT then state // { dp = assert !limit || state.dp != limitNum || !abortOnDataPointerLimit || abort "Data pointer too high."; if state.dp == limitNum then limitNum else state.dp + 1; } else
-      if ins == i.LEFT then state // { dp = assert state.dp != 0 || !abortOnDataPointerLimit || abort "Negative data pointer."; if state.dp == 0 then 0 else state.dp - 1; } else
+      if ins == i.LEFT then state // { dp = assert !limit || state.dp != 0 || !abortOnDataPointerLimit || abort "Negative data pointer."; if state.dp == 0 then 0 else state.dp - 1; } else
       if ins == i.INC then state // { data = incAtDp state.dp state.data; } else
       if ins == i.DEC then state // { data = decAtDp state.dp state.data; } else
       if ins == i.OUT then state // (with state; { output = output ++ [ (elemAt data dp) ]; }) else
